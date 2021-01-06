@@ -1,0 +1,30 @@
+server:
+  port: 8088
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+multitenancy:
+  master:
+    repository:
+      packages: com.sashutosh.dbpertenantwithliquibase.repository
+      entityManager:
+        packages: com.sashutosh.dbpertenantwithliquibase.domain.entity
+    datasource:
+      url: jdbc:postgresql://localhost:5432/mtcore
+      username: postgres
+      password: Cloud_123
+    liquibase:
+      changeLog: classpath:db/changelog/db.changelog-master.yaml
+  tenant:
+    datasource:
+      url-prefix: jdbc:postgresql://localhost:5432/
+    liquibase:
+      changeLog: classpath:db/changelog/db.changelog-tenant.yaml
+encryption:
+  secret: Cloud_123
+  salt: randomSalt
