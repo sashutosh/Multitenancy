@@ -123,7 +123,7 @@ public class TenantManagementServiceImpl implements TenantManagementService {
 
     private void createDB(String dbName, String password) {
         jdbcTemplate.execute((StatementCallback<Object>) statement -> statement.execute("CREATE DATABASE " + dbName));
-        jdbcTemplate.execute((StatementCallback<Object>) statement -> statement.execute("CREATE USER " + dbName + " WITH ENCRYPTED PASSWORD '" + password + "'"));
+        jdbcTemplate.execute((StatementCallback<Object>) statement -> statement.execute("CREATE ROLE " + dbName + " LOGIN ENCRYPTED PASSWORD '" + password + "'"));
         jdbcTemplate.execute((StatementCallback<Object>) statement -> statement.execute("GRANT ALL PRIVILEGES ON DATABASE " + dbName + " TO " + dbName));
     }
 }

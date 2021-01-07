@@ -20,7 +20,7 @@ import java.util.Map;
 @EnableJpaRepositories(
         basePackages = {"com.sashutosh.dbpertenantwithliquibase.repository"},
         entityManagerFactoryRef = "masterEntityManagerFactory",
-        transactionManagerRef = "masterTransactionManagerFactory"
+        transactionManagerRef = "masterTransactionManager"
 )
 public class MasterPersistenceConfig {
 
