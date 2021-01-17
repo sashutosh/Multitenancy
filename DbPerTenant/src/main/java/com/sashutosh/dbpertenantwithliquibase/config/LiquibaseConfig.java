@@ -25,11 +25,11 @@ public class LiquibaseConfig {
         return new LiquibaseProperties();
     }
 
-    @Bean
+   /* @Bean
     @ConfigurationProperties("multitenancy.tenant.liquibase")
     public LiquibaseProperties tenantLiquibaseProperties() {
         return new LiquibaseProperties();
-    }
+    }*/
 
     @Bean
     public SpringLiquibase masterLiquibase(@LiquibaseDataSource ObjectProvider<DataSource> liquibaseDataSource) {

@@ -10,7 +10,7 @@ public class EncryptionTest {
 
     @Test
     public void testEncryptDecrypt() {
-        String strToEncrypt = "Cloud_123";
+        String strToEncrypt = "secret";
         String encrypted = es.encrypt(strToEncrypt, "Cloud_123", "randomSalt");
         String decrypted = es.decrypt(encrypted, "Cloud_123", "randomSalt");
         assertThat(strToEncrypt.equals(decrypted));
